@@ -1,3 +1,9 @@
 #!/bin/bash
 
-whiptail --title "Option 1" --msgbox "You chose option 1. Exit status $?" 8 45
+if [[ -d ./DataBase/$dbName ]]; then
+    whiptail --title "Connect to Database" --msgbox "Connected Successfully" 8 45
+    tableMainMenu
+else
+    whiptail --title "Connect to Database" --msgbox "Database Doesn't Exist" 8 45
+    mainMenu
+fi
