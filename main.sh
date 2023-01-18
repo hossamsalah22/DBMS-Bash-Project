@@ -1,6 +1,6 @@
 #!/bin/bash
 
-mkdir DataBases 2>> ./.error.log
+mkdir DataBases 2>>./.error.log
 clear
 echo "Welcome To DBMS"
 function mainMenu {
@@ -15,13 +15,19 @@ function mainMenu {
   echo -e "Enter Choice: \c"
   read ch
   case $ch in
-    1)  . selectDB.sh ;;
-    2)  . createDB.sh ;;
-    3)  . renameDB.sh ;;
-    4)  . dropDB.sh ;;
-    5)  ls ./DataBases ; mainMenu;;
-    6) exit ;;
-    *) echo " Wrong Choice " ; mainMenu;
+  1) . selectDB.sh ;;
+  2) . createDB.sh ;;
+  3) . renameDB.sh ;;
+  4) . dropDB.sh ;;
+  5)
+    ls ./DataBases
+    mainMenu
+    ;;
+  6) exit ;;
+  *)
+    echo " Wrong Choice "
+    mainMenu
+    ;;
   esac
 }
 
