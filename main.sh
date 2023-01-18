@@ -29,7 +29,8 @@ function mainMenu() {
     . dropDB.sh
     ;;
   5)
-    ls ./DataBases
+    dataBasse=$(ls ./DataBase)
+    whiptail --title "List of DataBases" --msgbox "$dataBasse" 30 45
     mainMenu
     ;;
   6)
