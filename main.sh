@@ -17,16 +17,21 @@ function mainMenu() {
   2)
     echo "Create Database"
     dbName=$(whiptail --title "Create DataBase" --inputbox "Enter Database Name: " 8 45 3>&1 1>&2 2>&3)
-    # echo $dbName
     . ./createDB.sh
     mainMenu
     ;;
   3)
-    . renameDB.sh
+    echo "Rename Database"
+    currentName=$(whiptail --title "Rename DataBase" --inputbox "Enter Database Current Name: " 8 45 3>&1 1>&2 2>&3)
+    newName=$(whiptail --title "Rename DataBase" --inputbox "Enter Database New Name: " 8 45 3>&1 1>&2 2>&3)
+    . ./renameDB.sh
     mainMenu
     ;;
   4)
-    . dropDB.sh
+    echo "Delete Database"
+    dbName=$(whiptail --title "Delete DataBase" --inputbox "Enter Database Name: " 8 45 3>&1 1>&2 2>&3)
+    . ./dropDB.sh
+    mainMenu
     ;;
   5)
     dataBasse=$(ls ./DataBase)
