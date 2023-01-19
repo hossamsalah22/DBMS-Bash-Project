@@ -1,0 +1,4 @@
+id + : + int + : + PK + :
+name + : + str + : + + :
+age + : + str + : + + :
+email + : + str+ : +

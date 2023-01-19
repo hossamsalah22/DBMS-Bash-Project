@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [[ -d ./DataBase ]]; then
-  continue
+  echo "Welcome"
 else
   mkdir ./DataBase
 fi
@@ -63,7 +63,9 @@ function tableMainMenu() {
 
   case $tableMainMenu in
   1)
-    whiptail --title "Rename Database Message" --msgbox "Database Doesn't Exist" 8 45
+    tableName=$(whiptail --title "Create Table" --inputbox "Enter Table Name: " 8 45 3>&1 1>&2 2>&3)
+    . ./createTable.sh
+    tableMainMenu
     ;;
 
   2)

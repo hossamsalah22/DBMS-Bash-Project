@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [[ $tableName =~ ^[A-Za-z_]{1}+([A-Za-z0-9]*)$ ]]; then
+if [[ $tableName =~ ^[A-Za-z]{1}+([A-Za-z0-9]*)$ ]]; then
     if [[ -f ./DataBase/$dbName/$tableName ]]; then
         if (whiptail --title "Are You Sure?" --yesno "Are You Sure You want to delete $tableName Table?" 8 45); then
             rm ./DataBase/$dbName/$tableName
