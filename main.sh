@@ -1,8 +1,14 @@
 #!/bin/bash
 
+if [[ -d ./DataBase ]]; then
+  continue
+else
+  mkdir ./DataBase
+fi
+
 function mainMenu() {
 
-  mainMenu=$(whiptail --title "BDMS Menu" --fb --menu "Choose an option" 15 60 4 \
+  mainMenu=$(whiptail --title "BDMS Menu" --fb --menu "Choose an option" 15 60 6 \
     "1" "Select Database" \
     "2" "Create Database" \
     "3" "Rename Database" \
@@ -12,25 +18,21 @@ function mainMenu() {
 
   case $mainMenu in
   1)
-    echo "Connect ro Database"
     dbName=$(whiptail --title "Connect to Database" --inputbox "Enter Database Name: " 8 45 3>&1 1>&2 2>&3)
     . ./selectDB.sh
     ;;
   2)
-    echo "Create Database"
     dbName=$(whiptail --title "Create Database" --inputbox "Enter Database Name: " 8 45 3>&1 1>&2 2>&3)
     . ./createDB.sh
     mainMenu
     ;;
   3)
-    echo "Rename Database"
     currentName=$(whiptail --title "Rename Database" --inputbox "Enter Database Current Name: " 8 45 3>&1 1>&2 2>&3)
     newName=$(whiptail --title "Rename Database" --inputbox "Enter Database New Name: " 8 45 3>&1 1>&2 2>&3)
     . ./renameDB.sh
     mainMenu
     ;;
   4)
-    echo "Delete Database"
     dbName=$(whiptail --title "Delete Database" --inputbox "Enter Database Name: " 8 45 3>&1 1>&2 2>&3)
     . ./dropDB.sh
     mainMenu
@@ -48,7 +50,7 @@ function mainMenu() {
 
 function tableMainMenu() {
 
-  tableMainMenu=$(whiptail --title "Table Menu" --fb --menu "Choose an option" 15 60 4 \
+  tableMainMenu=$(whiptail --title "Table Menu" --fb --menu "Choose an option" 25 50 9 \
     "1" "Create Table" \
     "2" "List Tables" \
     "3" "Drop Table" \
@@ -69,7 +71,9 @@ function tableMainMenu() {
     ;;
 
   3)
-    whiptail --title "Rename Database Message" --msgbox "Database Doesn't Exist" 8 45
+    tableName=$(whiptail --title "Drop Table" --inputbox "Enter Table Name: " 8 45 3>&1 1>&2 2>&3)
+    . ./dropTable.sh
+    tableMainMenu
     ;;
 
   4)
@@ -89,7 +93,6 @@ function tableMainMenu() {
     ;;
 
   8)
-    cd ../../
     mainMenu
     ;;
 
@@ -100,4 +103,3 @@ function tableMainMenu() {
 }
 
 mainMenu
-tableMainMenu
