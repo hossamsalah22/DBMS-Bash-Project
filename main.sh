@@ -134,7 +134,9 @@ function tableSelectMenu() {
     ;;
 
   3)
-    echo "Select with Where Condition"
+    tableName=$(whiptail --title "Select From Table" --inputbox "Enter Table Name: " 8 45 3>&1 1>&2 2>&3)
+    . ./selectWhere.sh
+    tableSelectMenu
     ;;
   4)
     tableMainMenu

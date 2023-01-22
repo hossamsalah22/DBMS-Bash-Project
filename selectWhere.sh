@@ -7,8 +7,13 @@ if [[ $tableName =~ ^[A-Za-z_]{1}+([A-Za-z0-9]*)$ ]]; then
         if [[ $checkColumnFound == "" ]]; then
             whiptail --title "Error Message" --msgbox "Column doesn't exist" 8 45
         else
-            columnrecord=$(awk -F"|" '{print $"'$checkColumnFound'"}' ./DataBase/$dbName/$tableName)
-            whiptail --title "Table Column Record" --msgbox "$columnrecord" 35 70
+            value=$(whiptail --title "Column Record" --inputbox "Enter Value To Search For" 8 45 3>&1 1>&2 2>&3)
+            record=$(awk 'BEGIN{FS="|"}{if ($'$checkColumnFound'=="'$value'")  print $0}' ./DataBase/$dbName/$tableName)
+            if [[ $record == "" ]]; then
+                whiptail --title "Error Message" --msgbox "Record not found" 8 45
+            else
+                whiptail --title "Record" --msgbox "$record" 15 45
+            fi
         fi
     else
         whiptail --title "Table Records" --msgbox "Table Doesn't Exist" 8 45
