@@ -87,7 +87,19 @@ function tableMainMenu() {
     ;;
 
   5)
-    tableSelectMenu
+    tableName=$(whiptail --title "Select From Table" --inputbox "Enter Table Name: " 8 45 3>&1 1>&2 2>&3)
+    if [[ $tableName =~ ^[A-Za-z_]{1}+([A-Za-z0-9]*)$ ]]; then
+      if [[ -f ./DataBase/$dbName/$tableName ]]; then
+        tableSelectMenu
+      else
+        whiptail --title "Table Records" --msgbox "Table Doesn't Exist" 8 45
+        tableMainMenu
+      fi
+    else
+      whiptail --title "Table Records" --msgbox "Table Name Doesn't Meet Minimum Requirements" 8 45
+      tableMainMenu
+    fi
+
     ;;
 
   6)
@@ -111,10 +123,10 @@ function tableMainMenu() {
 function tableSelectMenu() {
 
   tableSelectMenu=$(
-    whiptail --title "Select From Table Menu" --fb --menu "Choose an option" 8 45 6 \
+    whiptail --title "Select From Table Menu" --fb --menu "Choose an option" 25 50 6 \
       "1" "Select All Columns" \
       "2" "Select Specific Column" \
-      "3" "Select With Where Condition" \
+      "3" "Select With Specific Value" \
       "4" "Back to Table Menu" \
       "5" "Back to Main Menu" \
       "6" "Exit" 3>&1 1>&2 2>&3
@@ -122,19 +134,17 @@ function tableSelectMenu() {
 
   case $tableSelectMenu in
   1)
-    tableName=$(whiptail --title "Select From Table" --inputbox "Enter Table Name: " 8 45 3>&1 1>&2 2>&3)
+
     . ./selectAll.sh
     tableSelectMenu
     ;;
 
   2)
-    tableName=$(whiptail --title "Select From Table" --inputbox "Enter Table Name: " 8 45 3>&1 1>&2 2>&3)
     . ./selectColumn.sh
     tableSelectMenu
     ;;
 
   3)
-    tableName=$(whiptail --title "Select From Table" --inputbox "Enter Table Name: " 8 45 3>&1 1>&2 2>&3)
     . ./selectWhere.sh
     tableSelectMenu
     ;;
