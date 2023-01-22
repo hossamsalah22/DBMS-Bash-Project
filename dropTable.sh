@@ -12,5 +12,5 @@ if [[ $tableName =~ ^[A-Za-z]{1}+([A-Za-z0-9]*)$ ]]; then
         whiptail --title "Delete Table Message" --msgbox "Table $tableName Doesn't Exist" 8 45
     fi
 else
-    whiptail --title "Delete Table Message" --msgbox "Table Name Validation Error" 8 45
+    whiptail --title "Delete Table Message" --msgbox "Table Name Doesn't Meet Minimum Requirements" 8 45
 fi

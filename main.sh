@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [[ -d ./DataBase ]]; then
-  echo "Welcome"
+  echo "Welcome to Our System"
 else
   mkdir ./DataBase
 fi
@@ -20,6 +20,7 @@ function mainMenu() {
   1)
     dbName=$(whiptail --title "Connect to Database" --inputbox "Enter Database Name: " 8 45 3>&1 1>&2 2>&3)
     . ./selectDB.sh
+    mainMenu
     ;;
   2)
     dbName=$(whiptail --title "Create Database" --inputbox "Enter Database Name: " 8 45 3>&1 1>&2 2>&3)
@@ -69,7 +70,9 @@ function tableMainMenu() {
     ;;
 
   2)
-    whiptail --title "Rename Database Message" --msgbox "Database Doesn't Exist" 8 45
+    tables=$(ls ./DataBase/$dbName)
+    whiptail --title "List of Tables in Database $dbName" --msgbox "$tables" 30 45
+    tableMainMenu
     ;;
 
   3)
