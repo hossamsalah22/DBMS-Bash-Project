@@ -1,3 +1,4 @@
+#!/bin/bash
 echo -e "Table Name: \c"
   read tableName
   if [[ -f $tableName ]]; then
@@ -9,22 +10,26 @@ echo -e "Table Name: \c"
     sep=","
     for (( i=0 ; i<$colsNum ; i++ )); 
       do
-  	   echo -e "enter column name number $i: \c"
-	   read colName
+      echo -e "enter column name number $i: \c"
+    read colName
 
-	   echo -e "enter type of column number $colName: \c"
-	      select datatype in int str
-	      do 
-	         case $var in
-		        int ) colType="int";break;;
-		        str ) colType="str";break;;
-		        * ) echo "You entered wrong datatype, enter either int or str";; 
-	         esac
-	      done 
-	   tableData+="\n$colName$sep$colType$sep"
+    echo -e "enter type of column number $colName: \c"
+      select datatype in int str
+      do 
+          case $datatype in
+          int) colType="int"
+          break;;
+          str) colType="str"
+          break;;
+          *) echo "You entered wrong datatype, enter either int or str"
+          break;; 
+          esac
+      done 
+    tableData+="$colName$sep$colType$sep"
       done
   fi
-  touch DataBase/$tableName
+  echo $tableData
+  touch DataBase/$dbName/$tableName
   echo -e $tableDate >> $tableName
 
 
