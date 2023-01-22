@@ -50,7 +50,6 @@ function mainMenu() {
 }
 
 function tableMainMenu() {
-
   tableMainMenu=$(whiptail --title "Table Menu" --fb --menu "Choose an option" 25 50 9 \
     "1" "Create Table" \
     "2" "List Tables" \
@@ -82,11 +81,13 @@ function tableMainMenu() {
     ;;
 
   4)
-    whiptail --title "Rename Database Message" --msgbox "Database Doesn't Exist" 8 45
+    tableName=$(whiptail --title "Insert Into Table" --inputbox "Enter Table Name: " 8 45 3>&1 1>&2 2>&3)
+    . ./insertIntoTable.sh
+    tableMainMenu
     ;;
 
   5)
-    whiptail --title "Rename Database Message" --msgbox "Database Doesn't Exist" 8 45
+    tableSelectMenu
     ;;
 
   6)
@@ -102,6 +103,46 @@ function tableMainMenu() {
     ;;
 
   9)
+    exit
+    ;;
+  esac
+}
+
+function tableSelectMenu() {
+
+  tableSelectMenu=$(
+    whiptail --title "Select From Table Menu" --fb --menu "Choose an option" 8 45 6 \
+      "1" "Select All Columns" \
+      "2" "Select Specific Column" \
+      "3" "Select With Where Condition" \
+      "4" "Back to Table Menu" \
+      "5" "Back to Main Menu" \
+      "6" "Exit" 3>&1 1>&2 2>&3
+  )
+
+  case $tableSelectMenu in
+  1)
+    tableName=$(whiptail --title "Select From Table" --inputbox "Enter Table Name: " 8 45 3>&1 1>&2 2>&3)
+    . ./selectAll.sh
+    tableSelectMenu
+    ;;
+
+  2)
+    tableName=$(whiptail --title "Select From Table" --inputbox "Enter Table Name: " 8 45 3>&1 1>&2 2>&3)
+    . ./selectColumn.sh
+    tableSelectMenu
+    ;;
+
+  3)
+    echo "Select with Where Condition"
+    ;;
+  4)
+    tableMainMenu
+    ;;
+  5)
+    . ./main.sh
+    ;;
+  6)
     exit
     ;;
   esac
