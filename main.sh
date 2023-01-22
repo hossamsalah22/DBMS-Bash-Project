@@ -99,7 +99,6 @@ function tableMainMenu() {
       whiptail --title "Table Records" --msgbox "Table Name Doesn't Meet Minimum Requirements" 8 45
       tableMainMenu
     fi
-
     ;;
 
   6)
@@ -107,7 +106,9 @@ function tableMainMenu() {
     ;;
 
   7)
-    whiptail --title "Rename Database Message" --msgbox "Database Doesn't Exist" 8 45
+    tableName=$(whiptail --title "Update Table" --inputbox "Enter Table Name: " 8 45 3>&1 1>&2 2>&3)
+    . ./updateTable.sh
+    tableMainMenu
     ;;
 
   8)
