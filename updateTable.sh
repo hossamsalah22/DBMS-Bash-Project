@@ -36,14 +36,13 @@ if [[ $tableName =~ ^[A-Za-z_]{1}+([A-Za-z0-9]*)$ ]]; then
                 fi
             fi
 
-            else
-            whiptail --title "Table Records" --msgbox "Table Doesn't Exist" 8 45
-            tableMainMenu
         fi
     else
-        whiptail --title "Table Records" --msgbox "Table Name Doesn't Meet Minimum Requirements" 8 45
+        whiptail --title "Table Records" --msgbox "Table Doesn't Exist" 8 45
         tableMainMenu
+
     fi
 else
-    whiptail --title "Connect to Table" --msgbox "Table Name Validaton Error" 8 45
+    whiptail --title "Table Records" --msgbox "Table Name Doesn't Meet Minimum Requirements" 8 45
+    tableMainMenu
 fi

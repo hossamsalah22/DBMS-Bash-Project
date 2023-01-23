@@ -1,12 +1,11 @@
 #!/bin/bash
-cd ./DataBase/$dbName
 
 if [[ $tableName =~ ^[A-Za-z_]{1}+([A-Za-z0-9]*)$ ]]; then
-  if [[ -f $tableName ]]; then
+  if [[ -f ./DataBase/$dbName/$tableName ]]; then
     whiptail --title "Create Table Message" --msgbox "Table $tableName Already Exist" 8 45
   else
     columns=$(whiptail --title "Columns Number" --inputbox "Enter Number Of Columns" 8 45 3>&1 1>&2 2>&3)
-    touch $tableName
+    touch ./DataBase/$dbName/$tableName
 
     i=1
     datatype=""
@@ -48,19 +47,18 @@ if [[ $tableName =~ ^[A-Za-z_]{1}+([A-Za-z0-9]*)$ ]]; then
         esac
       fi
 
-      if [[ i -eq $colNumber ]]; then
-        echo $colName >>$tableName
-        echo $colName$separator$datatype$separator$isPrimary >>.$tableName
-
+      if ! [[ $i == $colNumber ]]; then
+        echo -n $colName$separator >>./DataBase/$dbName/$tableName
+        echo $colName$separator$datatype$separator$isPrimary$separator >>./DataBase/$dbName/.$tableName
       else
-        echo -n $colName$separator >>$tableName
-        echo $colName$separator$datatype$separator$isPrimary$separator >>.$tableName
+        echo $colName >>./DataBase/$dbName/$tableName
+        echo $colName$separator$datatype$separator$isPrimary >>./DataBase/$dbName/.$tableName
       fi
       ((i++))
       isPrimary=""
     done
     whiptail --title "Create table Message" --msgbox "You created $tableName sucessfully" 8 45
   fi
+else
+  whiptail --title "Error Message" --msgbox "Table Name Validaton Error" 8 45
 fi
-
-cd ../..
