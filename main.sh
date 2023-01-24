@@ -1,8 +1,6 @@
 #!/bin/bash
 
-if [[ -d ./DataBase ]]; then
-  echo "Welcome to Our System"
-else
+if ! [[ -d ./DataBase ]]; then
   mkdir ./DataBase
 fi
 

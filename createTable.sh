@@ -3,6 +3,7 @@
 if [[ $tableName =~ ^[A-Za-z_]{1}+([A-Za-z0-9]*)$ ]]; then
   if [[ -f ./DataBase/$dbName/$tableName ]]; then
     whiptail --title "Create Table Message" --msgbox "Table $tableName Already Exist" 8 45
+    # fi
   else
     columns=$(whiptail --title "Columns Number" --inputbox "Enter Number Of Columns" 8 45 3>&1 1>&2 2>&3)
     touch ./DataBase/$dbName/$tableName
@@ -13,10 +14,9 @@ if [[ $tableName =~ ^[A-Za-z_]{1}+([A-Za-z0-9]*)$ ]]; then
     primarykeyMenu="2"
     separator="|"
     tableInfo=$colName$separator$datatype$separator$isPrimary
+
     while [ $i -le $columns ]; do
-
       colName=$(whiptail --title "column Name" --inputbox "Enter Column $i Name " 8 45 3>&1 1>&2 2>&3)
-
       datatypeMenu=$(whiptail --title "Data Type Menu " --fb --menu "select Data Type" 15 60 4 \
         "1" "int" \
         "2" "str" \
@@ -39,27 +39,27 @@ if [[ $tableName =~ ^[A-Za-z_]{1}+([A-Za-z0-9]*)$ ]]; then
           "2" "no" 3>&1 1>&2 2>&3)
         case $primarykeyMenu in
         1)
-          isPrimary="PK"
+          isPrimary="yes"
           ;;
         2)
-          isPrimary=""
+          isPrimary="no"
           ;;
         esac
       fi
 
-      if ! [[ $i == $colNumber ]]; then
-        echo -n $colName$separator >>./DataBase/$dbName/$tableName
-        echo "" >>./DataBase/$dbName/$tableName
-        echo $colName$separator$datatype$separator$isPrimary$separator >>./DataBase/$dbName/.$tableName
-      else
+      if [[ i -eq $colNumber ]]; then
         echo $colName >>./DataBase/$dbName/$tableName
         echo $colName$separator$datatype$separator$isPrimary >>./DataBase/$dbName/.$tableName
+      else
+        echo -n $colName$separator >>./DataBase/$dbName/$tableName
+        echo $colName$separator$datatype$separator$isPrimary$separator >>./DataBase/$dbName/.$tableName
       fi
+
       ((i++))
-      isPrimary=""
+      isPrimary="no"
     done
     whiptail --title "Create table Message" --msgbox "You created $tableName sucessfully" 8 45
   fi
 else
-  whiptail --title "Error Message" --msgbox "Table Name Validaton Error" 8 45
+  whiptail --title "Create table Message" --msgbox "Name Validation Error" 8 45
 fi
