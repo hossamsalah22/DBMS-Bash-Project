@@ -1,6 +1,7 @@
 #!/bin/bash
 
 if [[ -d ./DataBase/$currentName ]]; then
+    newName=$(whiptail --title "Rename Database" --inputbox "Enter Database New Name: " 8 45 3>&1 1>&2 2>&3)
     if [[ -d ./DataBase/$newName ]]; then
         whiptail --title "Rename Database Message" --msgbox "Cannot Rename Database, $dbName Already Exists" 8 45
     else

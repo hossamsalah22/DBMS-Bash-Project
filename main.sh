@@ -27,7 +27,6 @@ function mainMenu() {
     ;;
   3)
     currentName=$(whiptail --title "Rename Database" --inputbox "Enter Database Current Name: " 8 45 3>&1 1>&2 2>&3)
-    newName=$(whiptail --title "Rename Database" --inputbox "Enter Database New Name: " 8 45 3>&1 1>&2 2>&3)
     . ./renameDB.sh
     mainMenu
     ;;
