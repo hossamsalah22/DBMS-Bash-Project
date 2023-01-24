@@ -49,6 +49,7 @@ if [[ $tableName =~ ^[A-Za-z_]{1}+([A-Za-z0-9]*)$ ]]; then
 
       if ! [[ $i == $colNumber ]]; then
         echo -n $colName$separator >>./DataBase/$dbName/$tableName
+        echo "" >>./DataBase/$dbName/$tableName
         echo $colName$separator$datatype$separator$isPrimary$separator >>./DataBase/$dbName/.$tableName
       else
         echo $colName >>./DataBase/$dbName/$tableName
