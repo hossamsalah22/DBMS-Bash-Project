@@ -102,7 +102,9 @@ function tableMainMenu() {
     ;;
 
   6)
-    whiptail --title "Rename Database Message" --msgbox "Database Doesn't Exist" 8 45
+    tableName=$(whiptail --title "Delete from Table" --inputbox "Enter Table Name: " 8 45 3>&1 1>&2 2>&3)
+    . ./deleteFromTable.sh
+    tableMainMenu
     ;;
 
   7)
