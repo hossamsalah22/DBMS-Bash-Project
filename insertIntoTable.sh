@@ -24,7 +24,7 @@ if [[ $tableName =~ ^[A-Za-z_]{1}+([A-Za-z0-9]*)$ ]]; then
                     record=$(whiptail --title "Your Data" --inputbox "Enter data for $checkcolname with in data type ($checkdatatype)" 8 45 3>&1 1>&2 2>&3)
                 done
             fi
-            if [[ $checkisprimary == "PK" ]]; then
+            if [[ $checkisprimary == "yes" ]]; then
                 while [[ true ]]; do
                     if [[ $record =~ ^[$(awk 'BEGIN{FS="|" ; ORS=" "}{if(NR != 1)print $(('$i'-1))}' ./DataBase/$dbName/$tableName)]$ ]]; then
                         whiptail --title "Error Message" --msgbox "Primary key can't be duplicated" 8 45

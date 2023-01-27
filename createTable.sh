@@ -3,7 +3,6 @@
 if [[ $tableName =~ ^[A-Za-z_]{1}+([A-Za-z0-9]*)$ ]]; then
   if [[ -f ./DataBase/$dbName/$tableName ]]; then
     whiptail --title "Create Table Message" --msgbox "Table $tableName Already Exist" 8 45
-    # fi
   else
     columns=$(whiptail --title "Columns Number" --inputbox "Enter Number Of Columns" 8 45 3>&1 1>&2 2>&3)
     touch ./DataBase/$dbName/$tableName
@@ -47,14 +46,13 @@ if [[ $tableName =~ ^[A-Za-z_]{1}+([A-Za-z0-9]*)$ ]]; then
         esac
       fi
 
-      if [[ i -eq $colNumber ]]; then
-        echo $colName >>./DataBase/$dbName/$tableName
+      if [[ i -eq $columns ]]; then
+        echo $colName$separator >>./DataBase/$dbName/$tableName
         echo $colName$separator$datatype$separator$isPrimary >>./DataBase/$dbName/.$tableName
       else
         echo -n $colName$separator >>./DataBase/$dbName/$tableName
         echo $colName$separator$datatype$separator$isPrimary$separator >>./DataBase/$dbName/.$tableName
       fi
-
       ((i++))
       isPrimary="no"
     done
