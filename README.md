@@ -1,3 +1,23 @@
+<div align="center">
+ 
+ ![Database Management System]
+
+</div>
+
+<h3 align="center">Database Management System</h3>
+
+<div align="center">
+
+[![GitHub contributors](https://img.shields.io/github/contributors/hossamsalah22/DBMS-Bash-Project)](https://github.com/hossamsalah22/DBMS-Bash-Project/contributors)
+[![GitHub issues](https://img.shields.io/github/issues/hossamsalah22/DBMS-Bash-Project)](https://github.com/hossamsalah22/DBMS-Bash-Project/issues)
+[![GitHub forks](https://img.shields.io/github/forks/hossamsalah22/DBMS-Bash-Project)](https://github.com/hossamsalah22/DBMS-Bash-Project/network)
+[![GitHub stars](https://img.shields.io/github/stars/hossamsalah22/DBMS-Bash-Project)](https://github.com/hossamsalah22/DBMS-Bash-Project/stargazers)
+[![GitHub license](https://img.shields.io/github/license/hossamsalah22/DBMS-Bash-Project)](https://github.com/hossamsalah22/DBMS-Bash-Project/blob/master/LICENSE)
+
+</div>
+
+
+
 # DBMS-Bash-Project
 
 <h3> Create Table </h3>
@@ -28,3 +48,6 @@ every column is stored in a single row in the following pattern:
 - name|string|
 - id|int|PK
 
+# Team of 2:
+- Mariam Zayed: https://github.com/MariamZayed
+- Hossam Salah: https://github.com/hossamsalah22
