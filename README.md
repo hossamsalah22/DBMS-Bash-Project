@@ -24,6 +24,12 @@
 - after cloning project, go to BMS-Bash-Project dir and open your terminal then type <code>. main.sh</code>
 
 ## Create Database
+- ask for Database name, if existed before will notfiy user to rewrite new Database name.
+- when creating a new Database, it makes a new dir for it.
+- all new databaes go inside main Database dir. 
+> example<br>
+![image](https://user-images.githubusercontent.com/66179261/217027668-f9627fbe-5d7f-4737-8ae3-4c203610df32.png)
+
 
 ## Create Table
 In create table query
@@ -54,7 +60,9 @@ if table existed, echo table already existed.
 - Insert data goes to main table file, for example student
 > data is stored in this pattern<br>
   ![image](https://user-images.githubusercontent.com/66179261/217018203-800528b7-5db7-4934-9ff9-880dab15d45e.png)
-
+  
+  
+<br>
 # Team of 2:
 - Mariam Zayed: https://github.com/MariamZayed
 - Hossam Salah: https://github.com/hossamsalah22
