@@ -52,7 +52,7 @@ if table existed, echo table already existed.
 ## Insert into table 
 - It will ask iteratively about data to which belongs to table name, checking about if data inserted matches column datatype
 - Insert data goes to main table file, for example student
->> data is stored in this pattern<br>
+> data is stored in this pattern<br>
   ![image](https://user-images.githubusercontent.com/66179261/217018203-800528b7-5db7-4934-9ff9-880dab15d45e.png)
 
 # Team of 2:
