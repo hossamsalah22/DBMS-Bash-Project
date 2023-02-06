@@ -46,7 +46,7 @@ if table existed, echo table already existed.
 - Filed separator is pipline seperator  | .
 
 - Metadata files in Database Dir <br>
--- metadata files are ones who are starts with dot notation. These files are created in parrallel besides to tables file, for example: if you created table student, then two files are created, student and .student<br>
+> - metadata files are ones who are starts with dot notation. These files are created in parrallel besides to tables file, for example: if you created table student, then two files are created, student and .student<br>
 ![image](https://user-images.githubusercontent.com/66179261/217010672-eb641dbd-e9b6-4069-b5b7-f3d7ab425da7.png)
 
 ## Insert into table 
