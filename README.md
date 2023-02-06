@@ -21,7 +21,7 @@
 # DBMS-Bash-Project
 
 ## How to run Project
--- after cloning project, go to BMS-Bash-Project dir and open your terminal then type <code>. main.sh</code>
+- after cloning project, go to BMS-Bash-Project dir and open your terminal then type <code>. main.sh</code>
 
 ## Create Database
 
@@ -37,15 +37,15 @@ if table existed, echo table already existed.
 - then create table in DataBase dir fill with the new column names.
 
 - For this project we used meta-file to describe the coulmn datatype and whether it's primary or not.
--- next is an example for table file<br>
-    ![image](https://user-images.githubusercontent.com/66179261/217010804-3c8ebb69-db62-4d5d-a264-7c40dc45dcbd.png)
+ next is an example for table file<br>
+    ![image](https://user-images.githubusercontent.com/66179261/217010804-3c8ebb69-db62-4d5d-a264-7c40dc45dcbd.png)<br>
 
 -- next is an example for table meta file<br>
-    ![image](https://user-images.githubusercontent.com/66179261/217010856-b854198a-cdc6-4270-b0d5-a6a414f5179e.png)
+    ![image](https://user-images.githubusercontent.com/66179261/217010856-b854198a-cdc6-4270-b0d5-a6a414f5179e.png)<br>
 
-- Filed separator is pipline seperator  |
+- Filed separator is pipline seperator  | .
 
-- Metadata files in Database Dir
+- Metadata files in Database Dir <br>
 -- metadata files are ones who are starts with dot notation. These files are created in parrallel besides to tables file, for example: if you created table student, then two files are created, student and .student<br>
 ![image](https://user-images.githubusercontent.com/66179261/217010672-eb641dbd-e9b6-4069-b5b7-f3d7ab425da7.png)
 
