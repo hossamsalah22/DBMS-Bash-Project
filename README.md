@@ -61,8 +61,6 @@ if table existed, echo table already existed.
 > data is stored in this pattern<br>
   ![image](https://user-images.githubusercontent.com/66179261/217018203-800528b7-5db7-4934-9ff9-880dab15d45e.png)
   
-  
-<br>
-# Team of 2:
+ # Team of 2:
 - Mariam Zayed: https://github.com/MariamZayed
 - Hossam Salah: https://github.com/hossamsalah22
