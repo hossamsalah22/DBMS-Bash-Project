@@ -20,33 +20,44 @@
 
 # DBMS-Bash-Project
 
-<h3> Create Table </h3>
+## How to run Project
+-- after cloning project, go to BMS-Bash-Project dir and open your terminal then type <code>. main.sh</code>
+
+## Create Database
+
+## Create Table
 In create table query
-first column is always the primary column.
 
 1- ask about table name
-if table existed, echo table already existed
+if table existed, echo table already existed.
 
-2- ask about number of columns
+2- ask about number of columns.
 
 3- ask names of columns iterative with data type
+- then create table in DataBase dir fill with the new column names.
 
-then create table in DataBase dir fill with the new column names and types
+- For this project we used meta-file to describe the coulmn datatype and whether it's primary or not.
+-- next is an example for table file
+    id|name|age|
+    ![image](https://user-images.githubusercontent.com/66179261/217010804-3c8ebb69-db62-4d5d-a264-7c40dc45dcbd.png)
 
-- <h4>next is an example for file content</h4>
-    id|int|PK
-    name|str|
-    
-- the separator is comma ,
+-- next is an example for table meta file
+    id|int|yes|
+    name|str|no
+    age|int|no
+    ![image](https://user-images.githubusercontent.com/66179261/217010856-b854198a-cdc6-4270-b0d5-a6a414f5179e.png)
 
-<h4>Metadata files in Database Dir</4>
-metadata files are ones who are starts with dot notation. These files are created in parrallel besides to tables file, for example: 
-- if you created table student, then two files are created, student and .student
+- Filed separator is pipline seperator  |
 
-.student file holds the columns data, which are column name, column data type, if a column a PK or not
-every column is stored in a single row in the following pattern:
-- name|string|
-- id|int|PK
+- Metadata files in Database Dir
+-- metadata files are ones who are starts with dot notation. These files are created in parrallel besides to tables file, for example: if you created table student, then two files are created, student and .student
+![image](https://user-images.githubusercontent.com/66179261/217010672-eb641dbd-e9b6-4069-b5b7-f3d7ab425da7.png)
+
+## Insert into table 
+-It will ask iteratively about data to which belongs to table name, checking about if data inserted matches column datatype
+- Insert data goes to main table file, for example student
+-- data is stored in this pattern
+  ![image](https://user-images.githubusercontent.com/66179261/217018203-800528b7-5db7-4934-9ff9-880dab15d45e.png)
 
 # Team of 2:
 - Mariam Zayed: https://github.com/MariamZayed
