@@ -40,7 +40,7 @@ if table existed, echo table already existed.
  next is an example for table file<br>
     ![image](https://user-images.githubusercontent.com/66179261/217010804-3c8ebb69-db62-4d5d-a264-7c40dc45dcbd.png)<br>
 
--- next is an example for table meta file<br>
+- next is an example for table meta file<br>
     ![image](https://user-images.githubusercontent.com/66179261/217010856-b854198a-cdc6-4270-b0d5-a6a414f5179e.png)<br>
 
 - Filed separator is pipline seperator  | .
